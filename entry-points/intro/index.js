@@ -29,7 +29,7 @@ Promise.all([
   gl.useProgram(null)
 
 
-  const arrayVerts = new Float32Array([0, 0, 0])
+  const arrayVerts = new Float32Array([0, 0, 0, 0.5, 0.5, 0])
   const bufferVerts = gl.createBuffer()
 
   gl.bindBuffer(gl.ARRAY_BUFFER, bufferVerts)
@@ -46,6 +46,6 @@ Promise.all([
   gl.vertexAttribPointer(aPositionLoc, 3, gl.FLOAT, false, 0, 0)
   gl.bindBuffer(gl.ARRAY_BUFFER, null)
 
-  gl.drawArrays(gl.POINTS, 0, 1)
+  gl.drawArrays(gl.POINTS, 0, arrayVerts.length / 3)
 })
 
