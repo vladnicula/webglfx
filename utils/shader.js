@@ -1,3 +1,9 @@
+import path from 'path'
+
+import {
+  readFile,
+} from './files'
+
 /**
  *
  * @param {WebGL2 Context} gl
@@ -19,7 +25,13 @@ export const createShader = (gl, shaderText, shaderType) => {
   return shader
 }
 
-
+/**
+ *
+ * @param {WebGL2 Context} gl
+ * @param {Shader} vShader the vertex shader initialised via webgl2
+ * @param {Shader} fShader the fragment shader initialise dvia webgl2
+ * @param {Boolean} validation perform validation checkes or not?
+ */
 export const createProgram = (gl, vShader, fShader, validation = true) => {
   const prog = gl.createProgram()
   gl.attachShader(prog, vShader)
@@ -46,6 +58,22 @@ export const createProgram = (gl, vShader, fShader, validation = true) => {
   gl.deleteShader(vShader)
 
   return prog
+}
+
+export const loadShaderByPathAndCompile = async ({
+  gl,
+  vertexName = './vert.glsl',
+  fragName = './frag.glsl',
+  dir,
+}) => {
+  const [vertexText, fragmentText] = await Promise.all([
+    readFile(dir ? path.resolve(dir, vertexName) : vertexName, 'utf8'),
+    readFile(dir ? path.resolve(dir, fragName) : fragName, 'utf8'),
+  ])
+
+  const vertexShader = createShader(gl, vertexText, gl.VERTEX_SHADER)
+  const fragmentShader = createShader(gl, fragmentText, gl.FRAGMENT_SHADER)
+  return createProgram(gl, vertexShader, fragmentShader, true)
 }
 
 export default null
