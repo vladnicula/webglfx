@@ -20,6 +20,15 @@ const GLInstance = (canvasNode) => {
     return gl
   }
 
+  gl.fCreateArrayBuffer = (floatArray, isStatic = true) => {
+    const buffer = gl.createBuffer()
+    const staticStatus = isStatic ? gl.STATIC_DRAW : gl.DYNAMIC_DRAW
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
+    gl.bufferData(gl.ARRAY_BUFFER, floatArray, staticStatus)
+    gl.bindBuffer(gl.ARRAY_BUFFER, null)
+    return buffer
+  }
+
   return gl
 }
 

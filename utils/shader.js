@@ -60,6 +60,13 @@ export const createProgram = (gl, vShader, fShader, validation = true) => {
   return prog
 }
 
+/**
+ *
+ * @param {WebGL2 Context} props.gl
+ * @param {String} props.vertexName path to vertex file to be read from the filesystem
+ * @param {String} props.fragName path to fragment file to be read from the filesystem
+ * @param {String} props.dir the directory, if the names of vertext and fragment are relative
+ */
 export const loadShaderByPathAndCompile = async ({
   gl,
   vertexName = './vert.glsl',

@@ -19,12 +19,7 @@ loadShaderByPathAndCompile({
 
 
     const arrayVerts = new Float32Array([0, 0, 0, 0.5, 0.5, 0])
-    const bufferVerts = gl.createBuffer()
-
-    gl.bindBuffer(gl.ARRAY_BUFFER, bufferVerts)
-    gl.bufferData(gl.ARRAY_BUFFER, arrayVerts, gl.STATIC_DRAW)
-    gl.bindBuffer(gl.ARRAY_BUFFER, null)
-
+    const bufferVerts = gl.fCreateArrayBuffer(arrayVerts, true)
 
     gl.useProgram(shaderProgram)
     gl.uniform1f(uPointSizeLoc, 50.0)
