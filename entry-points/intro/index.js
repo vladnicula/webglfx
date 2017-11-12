@@ -17,6 +17,7 @@ loadShaderByPathAndCompile({
     gl.useProgram(shaderProgram)
     const aPositionLoc = gl.getAttribLocation(shaderProgram, 'aPosition')
     const uPointSizeLoc = gl.getUniformLocation(shaderProgram, 'uPointSize')
+    const uAngle = gl.getUniformLocation(shaderProgram, 'uAngle')
     gl.useProgram(null)
 
 
@@ -35,10 +36,30 @@ loadShaderByPathAndCompile({
     stats.showPanel(0)
     document.body.appendChild(stats.dom)
 
+    let gPointSize = 0
+    const gPointSizeStep = 3
+
+    let dt = 0
+    let currentTime = Date.now()
+
+
+    let gAngle = 0
+    const gAngleStep = Math.PI / 20
+
     const render = () => {
       stats.begin()
       gl.fClear()
-      gl.uniform1f(uPointSizeLoc, 50.0)
+
+      dt = (currentTime - Date.now()) / 1000
+      currentTime = Date.now()
+
+      gPointSize += gPointSizeStep * dt
+      const size = (Math.sin(gPointSize) * 10) + 30
+      gl.uniform1f(uPointSizeLoc, size)
+
+      gAngle += gAngleStep * dt
+      gl.uniform1f(uAngle, gAngle)
+
       gl.drawArrays(gl.POINTS, 0, arrayVerts.length / 3)
       stats.end()
       window.requestAnimationFrame(render)
