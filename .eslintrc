@@ -1,0 +1,40 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-param-reassign": 0,
+    "no-confusing-arrow": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": 0,
+    "react/no-unused-props": 0,
+    "react/require-default-props": 0,
+    "react/no-did-mount-set-state": 0,
+    "react/no-unused-prop-types": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "semi": [
+      1,
+      "never"
+    ]
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  }
+}
