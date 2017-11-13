@@ -19,9 +19,9 @@ export default class Camera {
   panX(v) {
     if (this.mode === CAMERA_MODE_ORBIT) return
     this.updateViewMatrix()
-    this.transform.position.x += this.transform.rigth[0] * v
-    this.transform.position.y += this.transform.rigth[1] * v
-    this.transform.position.z += this.transform.rigth[2] * v
+    this.transform.position.x += this.transform.right[0] * v
+    this.transform.position.y += this.transform.right[1] * v
+    this.transform.position.z += this.transform.right[2] * v
   }
 
   panY(v) {

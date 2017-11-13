@@ -11,7 +11,16 @@ export default class WebGLCanvas {
     this.canvasNode = canvasNode
     this.mMeshCache = {} // cache all the mesh structs, easy to unload buffers if the all exist here
 
-    this.gl.clearColor(1.0, 1.0, 1.0, 1.0)
+    const { gl } = this
+
+    gl.cullFace(gl.BACK)
+    gl.frontFace(gl.CCW)
+    gl.enable(gl.DEPTH_TEST)
+    gl.enable(gl.CULL_FACE)
+    gl.depthFunc(gl.LEQUAL)
+    gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA)
+
+    gl.clearColor(1.0, 1.0, 1.0, 1.0)
   }
 
   setSize(width, height) {
@@ -71,13 +80,18 @@ export default class WebGLCanvas {
 
     if (arrayIndex !== undefined && arrayIndex != null) {
       instructions.bufIdx = gl.createBuffer()
+      instructions.indexCount = arrayIndex.length
       gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, instructions.bufIdx)
       gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(arrayIndex), gl.STATIC_DRAW)
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null)
+      // gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null)
     }
 
     gl.bindVertexArray(null)
     gl.bindBuffer(gl.ARRAY_BUFFER, null)
+
+    if (arrayIndex !== undefined && arrayIndex != null) {
+      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null)
+    }
 
     this.mMeshCache[name] = instructions
     return instructions
