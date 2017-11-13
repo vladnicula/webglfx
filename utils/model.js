@@ -1,4 +1,4 @@
-import Transform from './transofrm'
+import Transform from './transform'
 
 export default class Modal {
   constructor(meshData) {

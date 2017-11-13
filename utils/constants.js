@@ -9,3 +9,7 @@ export const UNIF_PERSPECTIVE_NAME = 'uPerspectiveMtx'
 export const UNIF_MODEL_VIEW_NAME = 'uModelViewMtx'
 export const UNIF_CAMERA_NAME = 'uCameraMtx'
 export const UNIF_MAIN_TEXTURE_NAME = 'uMainTex'
+
+
+export const CAMERA_MODE_FREE = 0
+export const CAMERA_MODE_ORBIT = 1

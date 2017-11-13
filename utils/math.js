@@ -502,7 +502,6 @@ export class Matrix4 {
 
   static invert(out, mat) {
     if (mat === undefined) mat = out // If input isn't sent, then output is also input
-
     const a00 = mat[0]
     const a01 = mat[1]
     const a02 = mat[2]

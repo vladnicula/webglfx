@@ -82,4 +82,11 @@ export default class WebGLCanvas {
     this.mMeshCache[name] = instructions
     return instructions
   }
+
+  fitScreen(wp, hp) {
+    this.setSize(
+      window.innerWidth * (wp || 1),
+      window.innerHeight * (hp || 1),
+    )
+  }
 }
