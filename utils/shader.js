@@ -11,6 +11,9 @@ import {
   ATTR_NORMAL_NAME,
   ATTR_UV_LOC,
   ATTR_UV_NAME,
+  UNIF_PERSPECTIVE_NAME,
+  UNIF_MODEL_VIEW_NAME,
+  UNIF_CAMERA_NAME,
 } from './constants'
 
 /**
@@ -125,6 +128,13 @@ export const getStandardAttribLocation = (gl, program) => ({
   uv: gl.getAttribLocation(program, ATTR_UV_NAME),
 })
 
+export const getstandardUniformLocation = (gl, program) => ({
+  perspective: gl.getUniformLocation(program, UNIF_PERSPECTIVE_NAME),
+  modelMatrix: gl.getUniformLocation(program, UNIF_MODEL_VIEW_NAME),
+  cameraMatrix: gl.getUniformLocation(program, UNIF_CAMERA_NAME),
+  mainTexture: gl.getUniformLocation(program, UNIF_CAMERA_NAME),
+})
+
 export default class Shader {
   constructor(gl, vertexShaderText, fragmentShaderText, validation) {
     try {
@@ -139,7 +149,22 @@ export default class Shader {
     this.gl = gl
     gl.useProgram(this.program)
     this.attribLoc = getStandardAttribLocation(gl, this.program)
-    this.uniformLoc = {}
+    this.uniformLoc = getstandardUniformLocation(gl, this.program)
+  }
+
+  setPerspective(matData) {
+    this.gl.uniformMatrix4fv(this.uniformLoc.perspective, false, matData)
+    return this
+  }
+
+  setModelMatrix(matData) {
+    this.gl.uniformMatrix4fv(this.uniformLoc.modelMatrix, false, matData)
+    return this
+  }
+
+  setCameraMatrix(matData) {
+    this.gl.uniformMatrix4fv(this.uniformLoc.cameraMatrix, false, matData)
+    return this
   }
 
   activate() {
@@ -161,6 +186,7 @@ export default class Shader {
   }
 
   renderModel(model) {
+    this.setModelMatrix(model.transform.getViewMatrix())
     this.gl.bindVertexArray(model.mesh.vao)
 
     if (model.mesh.indexCount) {
