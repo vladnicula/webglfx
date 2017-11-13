@@ -1,5 +1,8 @@
 ## Usage
 
-`yarn start` to start app. Right now only with `TARGET_FILE=./entry-points/intro/index.html` works as it is the only example available. So:
+`yarn start` to start app. Use `TARGET_FILE=./entry-point/NN-name/index.html` to point to a specific lesson
+and load it in electron for viewing. Currently supporting the following target files:
 
-`TARGET_FILE=./entry-points/intro/index.html yarn start` for now
+- `./entry-points/01-intro/index.html`
+- `./entry-points/02-vaos/index.html`
+- `./entry-points/03-line-grid/index.html`
