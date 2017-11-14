@@ -8,6 +8,7 @@ function createWindow() {
   win = new BrowserWindow({
     width: 1200,
     height: 700,
+    webPreferences: { experimentalCanvasFeatures: true },
     // frame: false,
     // fullscreen : true
   })

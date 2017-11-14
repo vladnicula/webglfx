@@ -8,6 +8,7 @@ import {
 export default class WebGLCanvas {
   constructor(canvasNode) {
     this.gl = canvasNode.getContext('webgl2')
+
     this.canvasNode = canvasNode
     this.mMeshCache = {} // cache all the mesh structs, easy to unload buffers if the all exist here
 

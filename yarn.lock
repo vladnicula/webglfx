@@ -449,9 +449,17 @@
     vue-template-compiler "^2.0.0-alpha.8"
     vue-template-es2015-compiler "^1.4.2"
 
+"@types/long@^3.0.32":
+  version "3.0.32"
+  resolved "https://registry.yarnpkg.com/@types/long/-/long-3.0.32.tgz#f4e5af31e9e9b196d8e5fca8a5e2e20aa3d60b69"
+
 "@types/node@^7.0.12", "@types/node@^7.0.18":
   version "7.0.46"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.46.tgz#c3dedd25558c676b3d6303e51799abb9c3f8f314"
+
+"@types/webassembly-js-api@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@types/webassembly-js-api/-/webassembly-js-api-0.0.1.tgz#62d50b201077d7d4cc109bb1cada22fdfd4523fb"
 
 abab@^1.0.0:
   version "1.0.4"
@@ -613,6 +621,23 @@ asap@~2.0.3:
 asn1@~0.2.3:
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
+
+assemblyscript-loader@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/assemblyscript-loader/-/assemblyscript-loader-0.3.0.tgz#f2c92f5e660d808cf8d220142158b2a41f5a70c8"
+  dependencies:
+    "@types/long" "^3.0.32"
+    "@types/webassembly-js-api" "0.0.1"
+    long "^3.2.0"
+
+assemblyscript@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/assemblyscript/-/assemblyscript-0.3.0.tgz#58d1eb6777c02176b19f55197bb35419384c088f"
+  dependencies:
+    binaryen "37.0.0-nightly.20170909"
+    chalk "^2.1.0"
+    minimist "^1.2.0"
+    wabt "0.0.13-nightly.20170628"
 
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
@@ -1237,6 +1262,10 @@ bcrypt-pbkdf@^1.0.0:
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
   dependencies:
     tweetnacl "^0.14.3"
+
+binaryen@37.0.0-nightly.20170909:
+  version "37.0.0-nightly.20170909"
+  resolved "https://registry.yarnpkg.com/binaryen/-/binaryen-37.0.0-nightly.20170909.tgz#2e9731249ef33d5813d530572cfe55838caa75df"
 
 boolbase@~1.0.0:
   version "1.0.0"
@@ -3108,6 +3137,10 @@ lodash@^4.1.0, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
+long@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
+
 longest@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
@@ -4665,6 +4698,10 @@ vue-template-compiler@^2.0.0-alpha.8:
 vue-template-es2015-compiler@^1.4.2:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
+
+wabt@0.0.13-nightly.20170628:
+  version "0.0.13-nightly.20170628"
+  resolved "https://registry.yarnpkg.com/wabt/-/wabt-0.0.13-nightly.20170628.tgz#58ba4fd34ffe9a8a776205f442050616e3b7e245"
 
 webidl-conversions@^2.0.0:
   version "2.0.1"

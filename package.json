@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "asc": "asc -v -t64"
   },
   "author": "Vlad Nicula",
   "license": "MIT",
@@ -13,6 +14,8 @@
   "dependencies": {
     "@babel/core": "7.0.0-beta.32",
     "@babel/preset-env": "^7.0.0-beta.32",
+    "assemblyscript": "^0.3.0",
+    "assemblyscript-loader": "^0.3.0",
     "babel-eslint": "^8.0.2",
     "core-util-is": "^1.0.2",
     "electron": "^1.7.9",

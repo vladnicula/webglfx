@@ -1,0 +1,13 @@
+<html>
+  <head>
+    <title>WASM Hello World</title>
+    <link rel='stylesheet' href='./index.scss'/>
+  </head>
+  <body>
+    <div id="main">
+      Built with 
+      emcc hello-world.c -s WASM=1 -o hello-world.js --pre-js ./build/emscripten/pre-module.js --post-js ./build/emscripten/post_module.js
+    </div>
+    <script src='./index.js'></script>
+  </body>
+  </html> 
