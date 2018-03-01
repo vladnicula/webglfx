@@ -115,7 +115,11 @@ export const loadShaderByPathAndCompile = async ({
   fragName = './frag.glsl',
   dir,
 }) => {
-  const [vertexText, fragmentText] = await readShaderFiles(vertexName, fragName, dir)
+  const {vertexText, fragmentText} = await readShaderFiles({
+    vertexName:vertexName, 
+    fragName:fragName, 
+    dir:dir
+  })
 
   const vertexShader = createShader(gl, vertexText, gl.VERTEX_SHADER)
   const fragmentShader = createShader(gl, fragmentText, gl.FRAGMENT_SHADER)
