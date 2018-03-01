@@ -5,4 +5,4 @@ and load it in electron for viewing. Currently supporting the following target f
 
 - `./entry-points/01-intro/index.html`
 - `./entry-points/02-vaos/index.html`
-- `./entry-points/03-line-grid/index.html`
+- `./entry-points/03-linegrid/index.html`
